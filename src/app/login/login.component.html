@@ -1,14 +1,18 @@
-<form (submit)="onSubmit()">
+<form (submit)="onSubmit()" class="login-form">
     <label>
       Username:
-      <input type="text" [(ngModel)]="username" name="username">
+      <input type="text" [(ngModel)]="username" name="username" required>
     </label>
     <br>
     <label>
       Password:
-      <input type="password" [(ngModel)]="password" name="password">
+      <input type="password" [(ngModel)]="password" name="password" required>
     </label>
     <br>
     <button type="submit">Login</button>
   </form>
-  
+  <form (submit)="onSignup()" class="login-form">
+    <label>New to webiste? Click below to make an account</label>
+    <button type="submit">Sign Up</button>
+  </form>
+   
