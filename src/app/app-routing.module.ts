@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { EmployeeComponent } from './employee/employee.component';
-
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'employee', component: EmployeeComponent }
+  { path: 'homepage', component: EmployeeComponent },
+  { path: 'new-employee', component: AddEmployeeComponent },
+  { path: 'update-employee', component: UpdateEmployeeComponent }
 ];
 
 @NgModule({

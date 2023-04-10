@@ -1,0 +1,48 @@
+<p>update-employee works!</p>
+<div >
+    <div >
+        <h2 >Update Employee</h2>
+        <form [formGroup]="employeeForm" (ngSubmit)="updateEmployee()">
+            <div >
+                <label  for="username">First Name</label>
+                <input id="username" type="text" formControlName="firstname" name="username"
+                    />
+            </div>
+            <div >
+                <label  for="username">Last Name</label>
+                <input id="username" type="text" formControlName="lastname" name="username"
+                     />
+            </div>
+            <div >
+                <label  for="email">Email</label>
+                <input id="email" type="email" formControlName="email" name="email"
+                     />
+            </div>
+            <div >
+                <label  for="email">Gender</label>
+                <select id="gender" formControlName="gender" name="gender"
+                    c>
+                    <option value="" disabled>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div >
+                <label  for="email">Salary</label>
+                <input id="email" type="email" formControlName="salary" name="email"
+                    c />
+                <p *ngIf="errorMessage" >{{ errorMessage }}</p>
+                <p *ngIf="successMessage" >{{ successMessage }}</p>
+            </div>
+            <div >
+                <button type="submit"
+                    >Update
+                    </button>
+            </div>
+            <div >
+                 <a href="#"  (click)="goToHomePage($event)">Return to Home</a>
+            </div>
+        </form>
+    </div>
+</div>

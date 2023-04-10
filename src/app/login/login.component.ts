@@ -40,7 +40,7 @@ export class LoginComponent {
       if (data && data.login && data.login.message) {
         console.log(data.login.message)
         //localStorage.setItem('token', data.login.message);
-        this.router.navigate(['/employee']);
+        this.router.navigate(['/homepage']);
       }
     });
   }

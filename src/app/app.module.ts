@@ -11,6 +11,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { EmployeeComponent } from './employee/employee.component';
     LoginComponent,
     SignupComponent,
     EmployeeComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
   ],
   imports: [
     BrowserModule,
