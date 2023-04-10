@@ -37,6 +37,11 @@ export class LoginComponent {
       },
     }).subscribe((result: { data: LoginResponse }) => {
       const data = result.data;
+      if(data.login.message === "Invalid username or password"){
+        this.router.navigate(['/']);
+        return
+
+      }
       if (data && data.login && data.login.message) {
         console.log(data.login.message)
         //localStorage.setItem('token', data.login.message);

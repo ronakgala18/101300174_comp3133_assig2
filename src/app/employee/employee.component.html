@@ -1,119 +1,83 @@
-<div>
-    <div>
-
-        <div>
-
-            <a href="#" (click)="goToLogin($event)">Logout</a>
-        </div>
+<div class="container">
+    <div class="header">
+      <div class="logout">
+        <a href="#" (click)="goToLogin($event)" class="logout-button">Logout</a>
     </div>
-    <div>
-        <div>
-            <div>
-                <h1>Employees</h1>
-            </div>
-        </div>
-        <div>
-            <button (click)="goToAddEmployee($event)" type="submit" class=>New
-                Employee</button>
-        </div>
-        <div>
-
-            <div>
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Email
-                                </th>
-
-                                <th>
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <ng-container *ngFor="let employee of employees">
-                                <tr>
-
-                                    <td>
-                                        <span>{{ employee.firstname }} {{ employee.lastname
-                                            }}</span>
-                                    </td>
-                                    <td>{{ employee.email }}</td>
-                                    <td>
-                                        <div>
-                                            <button (click)="showDialog = true; selectedEmployee = employee;">
-                                                View
-                                            </button>
-                                            <button (click)="goToUpdate($event, employee);">
-                                                Update
-                                            </button>
-                                            <button (click)="showDeleteDialog = true; selectedEmployee = employee;">
-                                                    Delete
-                                            </button>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </ng-container>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-
-<div *ngIf="showDialog">
-    <div>
-        <div>
-            <div></div>
-        </div>
-        <span></span>
-        <div>
-            <div>
-                <h2>{{
-                    selectedEmployee.firstname }} {{ selectedEmployee.lastname }}</h2>
-                <p>Email:{{ selectedEmployee.email }}
-                </p>
-                <p>Gender:{{ selectedEmployee.gender |
-                    titlecase }}</p>
-                <p>Salary: ${{ selectedEmployee.salary
-                    }}</p>
-            </div>
-            <div>
-                <button type="button" (click)="showDialog = false">
-                    Close
-                </button>
-            </div>
-        </div>
+    <div class="content">
+      <div class="title">
+        <h1>Employees</h1>
+      </div>
+      <div class="actions">
+        <button 
+        style="
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+          "
+        (click)="goToAddEmployee($event)" type="submit" class="btn btn-primary">New Employee</button>
+      </div>
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let employee of employees">
+              <tr>
+                <td>
+                  <span>{{ employee.firstname }} {{ employee.lastname }}</span>
+                </td>
+                <td>{{ employee.email }}</td>
+                <td>
+                  <div class="buttons">
+                    <button (click)="showDialog = true; selectedEmployee = employee;">View</button>
+                    <button (click)="goToUpdate($event, employee);">Update</button>
+                    <button (click)="showDeleteDialog = true; selectedEmployee = employee;">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
     </div>
-</div>
-
-<div *ngIf="showDeleteDialog">
-    <div>
-        <div>
-            <div></div>
-        </div>
-        <span></span>
-        <div>
-            <div>
-                <h2>Are you sure you want to
-                    delete this employee?</h2>
-            </div>
-            <div>
-                <button type="button" (click)="showDeleteDialog = false">
-                    Cancel
-                </button>
-                <button type="button" (click)="deleteEmployee()">
-                    Yes, delete
-                </button>
-
-            </div>
-        </div>
+  </div>
+  <div *ngIf="showDialog" class="dialog">
+    <div class="dialog-container">
+      <div class="dialog-header">
+        <h2>{{ selectedEmployee.firstname }} {{ selectedEmployee.lastname }}</h2>
+      </div>
+      <div class="dialog-content">
+        <p>Email:{{ selectedEmployee.email }}</p>
+        <p>Gender:{{ selectedEmployee.gender | titlecase }}</p>
+        <p>Salary: ${{ selectedEmployee.salary }}</p>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" (click)="showDialog = false" class="btn btn-secondary">Close</button>
+      </div>
     </div>
-</div>
+  </div>
+  <div *ngIf="showDeleteDialog" class="dialog">
+    <div class="dialog-container">
+      <div class="dialog-header">
+        <h2>Are you sure you want to delete this employee?</h2>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" (click)="showDeleteDialog = false" class="btn btn-secondary">Cancel</button>
+        <button type="button" (click)="deleteEmployee()" class="btn btn-danger">Yes, delete</button>
+      </div>
+    </div>
+  </div>
