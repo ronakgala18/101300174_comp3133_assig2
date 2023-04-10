@@ -12,6 +12,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { __awaiter } from "tslib";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InMemoryCache } from '@apollo/client/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         provide: APOLLO_OPTIONS,
         useFactory(httpLink: HttpLink) {
             return {
+              cache: new InMemoryCache(),
                 link: httpLink.create({
+                  
                     uri: "https://troubled-clothes-calf.cyclic.app/graphql",
                 }),
             };
